@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: sweetshop-db
+    environment:
+      POSTGRES_USER: sweetshop
+      POSTGRES_PASSWORD: sweetshop123
+      POSTGRES_DB: sweetshop
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sweetshop"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  db-test:
+    image: postgres:15-alpine
+    container_name: sweetshop-db-test
+    environment:
+      POSTGRES_USER: sweetshop_test
+      POSTGRES_PASSWORD: sweetshop_test123
+      POSTGRES_DB: sweetshop_test
+    ports:
+      - "5433:5432"
+
+volumes:
+  postgres_data:
