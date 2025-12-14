@@ -1,73 +1,210 @@
-# Welcome to your Lovable project
+🍬 Sweet Shop Management System
 
-## Project info
+A full-stack Sweet Shop Management System designed to manage sweets inventory, handle purchases, and support role-based administration.
+The project follows clean architecture, secure authentication, and test-driven backend development practices.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🚀 Features
+👤 Authentication & Authorization
 
-## How can I edit this code?
+User registration and login
 
-There are several ways of editing your application.
+Secure JWT-based authentication
 
-**Use Lovable**
+Role-based access control (USER, ADMIN)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Protected API routes
 
-Changes made via Lovable will be committed automatically to this repo.
+🍭 Sweet Management
 
-**Use your preferred IDE**
+View all available sweets
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Search sweets by:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Name
 
-Follow these steps:
+Category
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Price range
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Purchase sweets with real-time stock validation
 
-# Step 3: Install the necessary dependencies.
-npm i
+🧑‍💼 Admin Capabilities
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Add new sweets
+
+Update existing sweet details
+
+Delete sweets
+
+Restock inventory
+
+Admin-only access enforced at API level
+
+🧪 Reliability & Quality
+
+Backend built using Test-Driven Development (TDD)
+
+Extensive automated test coverage
+
+Centralized error handling
+
+Input validation and edge-case handling
+
+🛠 Tech Stack
+Frontend
+
+React + TypeScript
+
+Vite
+
+Tailwind CSS
+
+shadcn/ui
+
+Context API for state management
+
+Backend
+
+Node.js + TypeScript
+
+Express.js
+
+PostgreSQL
+
+Prisma ORM
+
+JWT Authentication
+
+Zod for request validation
+
+Jest + Supertest for testing
+
+Infrastructure
+
+Docker Compose (PostgreSQL)
+
+📂 Project Structure
+.
+├── backend-code/
+│   ├── prisma/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   ├── repositories/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── validations/
+│   │   └── tests/
+│   ├── docker-compose.yml
+│   ├── jest.config.js
+│   ├── package.json
+│   └── README.md
+│
+├── src/                # Frontend source
+├── public/
+├── package.json
+└── README.md
+
+⚙️ Setup Instructions
+1️⃣ Clone the Repository
+git clone <YOUR_REPOSITORY_URL>
+cd <PROJECT_FOLDER>
+
+2️⃣ Backend Setup
+cd backend-code
+npm install
+
+Start PostgreSQL
+docker-compose up -d
+
+Run Database Migrations
+npm run prisma:migrate
+
+Seed Initial Data
+npm run prisma:seed
+
+Run Tests
+npm test
+
+Start Backend Server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Backend runs on:
 
-**Use GitHub Codespaces**
+http://localhost:3000
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3️⃣ Frontend Setup
+cd ..
+npm install
+npm run dev
 
-## What technologies are used for this project?
 
-This project is built with:
+Frontend runs on:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+http://localhost:5173
 
-## How can I deploy this project?
+🔗 API Overview
+Authentication
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+POST /api/auth/register
 
-## Can I connect a custom domain to my Lovable project?
+POST /api/auth/login
 
-Yes, you can!
+Sweets
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+GET /api/sweets
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+GET /api/sweets/search
+
+POST /api/sweets (Admin only)
+
+PUT /api/sweets/:id (Admin only)
+
+DELETE /api/sweets/:id (Admin only)
+
+Inventory
+
+POST /api/sweets/:id/purchase
+
+POST /api/sweets/:id/restock (Admin only)
+
+🧪 Testing
+
+Backend testing implemented using Jest + Supertest
+
+Covers:
+
+Authentication success & failure cases
+
+Role-based authorization
+
+CRUD operations
+
+Inventory stock validation
+
+Out-of-stock scenarios
+
+Run all tests using:
+
+npm test
+
+📌 Notes
+
+The project emphasizes correctness, maintainability, and security
+
+Backend logic is separated into controllers, services, and repositories
+
+All critical business rules are enforced at the API level
+
+✅ Status
+
+✔ Frontend implemented
+✔ Backend implemented
+✔ Database connected
+✔ Tests passing
+✔ Ready for submission
+
+🎯 Summary
+
+This project demonstrates the ability to design and implement a real-world full-stack application with secure authentication, role-based access control, inventory management, and reliable backend testing.
